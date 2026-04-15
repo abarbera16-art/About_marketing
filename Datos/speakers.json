@@ -32,5 +32,16 @@
       "linkedin": "https://linkedin.com",
       "instagram": "https://instagram.com"
     }
+  },
+  {
+    "id": 4,
+    "nombre": "alvaro",
+    "rol": "mafiaboss",
+    "imagenFondo": "../Imagenes/IMAGEN DEFINITIVA.jpeg",
+    "video": "../Recursos/video.mp4",
+    "etiquetas": [
+      "aaaa"
+    ],
+    "bio": "aaaaa"
   }
 ]
