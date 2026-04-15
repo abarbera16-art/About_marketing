@@ -90,7 +90,12 @@ document.getElementById('add-speaker-form').addEventListener('submit', async fun
             imagenFondo: document.getElementById('imagenFondo').value,
             video: document.getElementById('video').value,
             etiquetas: document.getElementById('etiquetas').value.split(',').map(t => t.trim()),
-            bio: document.getElementById('bio').value
+            bio: document.getElementById('bio').value,
+            // 👇 AÑADIMOS EL BLOQUE DE REDES AQUÍ 👇
+            redes: {
+                linkedin: document.getElementById('linkedin').value.trim(),
+                instagram: document.getElementById('instagram').value.trim()
+            }
         };
 
         ponentes.push(nuevoPonente);
