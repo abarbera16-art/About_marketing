@@ -2,10 +2,11 @@ const container = document.getElementById('speakers-container');
 
 async function initApp() {
     try {
-        // 🚨 CAMBIO CRÍTICO: Hemos quitado los dos puntos (../) 
-        // Prueba con './ponentes.json' o directamente '/ponentes.json' si esto falla
-        // Salimos de la carpeta actual, entramos en Datos, y pedimos el archivo speakers.json
-        const response = await fetch('../Datos/speakers.json');
+        // 1. Añadimos un "rompe-caché" para que siempre lea la última versión subida desde el panel
+        const cacheBuster = "?t=" + new Date().getTime();
+        
+        // 2. Ruta a tu archivo JSON (ajustado con el cacheBuster)
+        const response = await fetch('../Datos/speakers.json' + cacheBuster);
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -23,18 +24,27 @@ async function initApp() {
 
     } catch (error) {
         console.error("Error al cargar los ponentes:", error);
-        // Ahora si falla, lo veremos escrito en grande en la pantalla
-        container.innerHTML = `<h2 style="color: red; text-align: center; background: white; padding: 20px;">Error: No se encuentra el archivo JSON. Revisa la ruta en el fetch().</h2>`;
+        container.innerHTML = `<h2 style="color: red; text-align: center; background: white; padding: 20px;">Error: No se encuentra el archivo JSON. Revisa la consola (F12).</h2>`;
     }
 }
 
 function createSpeakerCard(p) {
-    const tagsHTML = p.etiquetas.map(t => `<li class="tag">${t}</li>`).join('');
+    // Protección anti-errores por si algún ponente no tiene etiquetas
+    const etiquetas = p.etiquetas || [];
+    const tagsHTML = etiquetas.map(t => `<li class="tag">${t}</li>`).join('');
+
+    // 🚨 PROTECCIÓN ANTI-CRASH: Manejamos las redes sociales. 
+    // Si el ponente viene del panel de admin (sin redes), evitamos que la web explote.
+    const linkedin = (p.redes && p.redes.linkedin) ? p.redes.linkedin : '#';
+    const instagram = (p.redes && p.redes.instagram) ? p.redes.instagram : '#';
+    
+    // Si no tiene el bloque de redes (porque lo creaste en el panel), ocultamos los botones de redes
+    const mostrarRedes = p.redes ? 'block' : 'none';
 
     return `
         <article class="speaker-card">
             <div class="speaker-visual">
-                <img src="${p.imagenFondo}" alt="${p.nombre}" class="aesthetic-img" loading="lazy">
+                <img src="${p.imagenFondo}" alt="${p.nombre}" class="aesthetic-img" loading="lazy" onerror="this.src='https://via.placeholder.com/300x400?text=Sin+Imagen'">
             </div>
 
             <div class="speaker-video">
@@ -51,9 +61,9 @@ function createSpeakerCard(p) {
                 <p class="speaker-role">${p.rol}</p>
                 <ul class="speaker-tags">${tagsHTML}</ul>
                 <p class="speaker-bio">${p.bio}</p>
-                <div class="speaker-socials">
-                    <a href="${p.redes.linkedin}" target="_blank" class="social-link">LinkedIn</a>
-                    <a href="${p.redes.instagram}" target="_blank" class="social-link">Instagram</a>
+                <div class="speaker-socials" style="display: ${mostrarRedes};">
+                    <a href="${linkedin}" target="_blank" class="social-link">LinkedIn</a>
+                    <a href="${instagram}" target="_blank" class="social-link">Instagram</a>
                 </div>
             </div>
         </article>
