@@ -1,8 +1,8 @@
 // ==========================================
-// 🛡️ 1. CONFIGURACIÓN Y LOGIN
+// 1. CONFIGURACION Y LOGIN
 // ==========================================
 const PASSWORD_SECRETA = "marketing2026"; 
-const GITHUB_TOKEN = prompt("🔑 Por seguridad, pega tu GitHub Token:");
+const GITHUB_TOKEN = prompt("Por seguridad, pega tu GitHub Token:");
 const REPO_OWNER_AND_NAME = "abarbera16-art/About_marketing_prueba";
 const FILE_PATH = "Datos/speakers.json";
 
@@ -15,33 +15,33 @@ const panelContainer = document.getElementById('panel-container');
 loginBtn.addEventListener('click', () => {
     if (passwordInput.value === PASSWORD_SECRETA) {
         if (!GITHUB_TOKEN) {
-            alert("⚠️ No has introducido el Token. Refresca la página para ponerlo.");
+            alert("No has introducido el Token. Refresca la pagina.");
             return;
         }
         loginContainer.style.display = 'none';
         panelContainer.style.display = 'block';
         cargarLista(); 
     } else {
-        alert("❌ Contraseña incorrecta");
+        alert("Contrasena incorrecta");
     }
 });
 
 // ==========================================
-// 📥 2. CARGAR Y MOSTRAR PONENTES
+// 2. CARGAR Y MOSTRAR PONENTES
 // ==========================================
 async function cargarLista() {
     const listContainer = document.getElementById('speakers-list');
-    listContainer.innerHTML = "⏳ Conectando con GitHub...";
+    listContainer.innerHTML = "Conectando con GitHub...";
 
     try {
-        const cacheBuster = `?t=${new Date().getTime()}`;
-        const apiUrl = `https://api.github.com/repos/${REPO_OWNER_AND_NAME}/contents/${FILE_PATH}${cacheBuster}`;
+        const cacheBuster = "?t=" + new Date().getTime();
+        const apiUrl = "https://api.github.com/repos/" + REPO_OWNER_AND_NAME + "/contents/" + FILE_PATH + cacheBuster;
         
         const res = await fetch(apiUrl, { 
-            headers: { "Authorization": `token ${GITHUB_TOKEN}` } 
+            headers: { "Authorization": "token " + GITHUB_TOKEN } 
         });
 
-        if (!res.ok) throw new Error("Error en la respuesta. ¿Es correcto el Token?");
+        if (!res.ok) throw new Error("Error en la respuesta de GitHub.");
 
         const data = await res.json();
         const content = JSON.parse(decodeURIComponent(escape(atob(data.content))));
@@ -62,22 +62,22 @@ async function cargarLista() {
         });
     } catch (e) {
         console.error(e);
-        listContainer.innerHTML = "❌ Error al cargar lista. Revisa el Token y la consola.";
+        listContainer.innerHTML = "Error al cargar lista. Revisa el Token.";
     }
 }
 
 // ==========================================
-// ➕ 3. AÑADIR PONENTE
+// 3. ANADIR PONENTE
 // ==========================================
 document.getElementById('add-speaker-form').addEventListener('submit', async function(e) {
     e.preventDefault();
     const btn = e.target.querySelector('button');
-    btn.innerText = "⏳ Subiendo...";
+    btn.innerText = "Subiendo...";
     btn.disabled = true;
 
     try {
-        const apiUrl = `https://api.github.com/repos/${REPO_OWNER_AND_NAME}/contents/${FILE_PATH}`;
-        const getRes = await fetch(apiUrl, { headers: { "Authorization": `token ${GITHUB_TOKEN}` } });
+        const apiUrl = "https://api.github.com/repos/" + REPO_OWNER_AND_NAME + "/contents/" + FILE_PATH;
+        const getRes = await fetch(apiUrl, { headers: { "Authorization": "token " + GITHUB_TOKEN } });
         const fileData = await getRes.json();
         let ponentes = JSON.parse(decodeURIComponent(escape(atob(fileData.content))));
 
@@ -98,24 +98,24 @@ document.getElementById('add-speaker-form').addEventListener('submit', async fun
 
         const putRes = await fetch(apiUrl, {
             method: "PUT",
-            headers: { "Authorization": `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
+            headers: { "Authorization": "token " + GITHUB_TOKEN, "Content-Type": "application/json" },
             body: JSON.stringify({
-                message: `Añadido: ${nuevoPonente.nombre}`,
+                message: "Anadido ponente: " + nuevoPonente.nombre,
                 content: nuevoContenidoBase64,
                 sha: fileData.sha
             })
         });
 
         if (putRes.ok) {
-            alert("✅ ¡Ponente añadido a GitHub!");
+            alert("Exito! Ponente anadido a GitHub.");
             this.reset();
             cargarLista(); 
         } else {
             const err = await putRes.json();
-            alert("❌ GitHub rechazó el archivo: " + err.message);
+            alert("Error de GitHub al guardar: " + err.message);
         }
     } catch (error) {
-        alert("❌ Error: " + error.message);
+        alert("Error de red: " + error.message);
     } finally {
         btn.innerText = "Subir a GitHub";
         btn.disabled = false;
@@ -123,14 +123,14 @@ document.getElementById('add-speaker-form').addEventListener('submit', async fun
 });
 
 // ==========================================
-// 🗑️ 4. ELIMINAR PONENTE
+// 4. ELIMINAR PONENTE
 // ==========================================
 window.eliminarPonente = async function(id) {
-    if (!confirm("¿Seguro que quieres eliminar este ponente?")) return;
+    if (!confirm("Seguro que quieres eliminar este ponente?")) return;
 
     try {
-        const apiUrl = `https://api.github.com/repos/${REPO_OWNER_AND_NAME}/contents/${FILE_PATH}`;
-        const getRes = await fetch(apiUrl, { headers: { "Authorization": `token ${GITHUB_TOKEN}` } });
+        const apiUrl = "https://api.github.com/repos/" + REPO_OWNER_AND_NAME + "/contents/" + FILE_PATH;
+        const getRes = await fetch(apiUrl, { headers: { "Authorization": "token " + GITHUB_TOKEN } });
         const fileData = await getRes.json();
         let ponentes = JSON.parse(decodeURIComponent(escape(atob(fileData.content))));
 
@@ -139,22 +139,22 @@ window.eliminarPonente = async function(id) {
 
         const putRes = await fetch(apiUrl, {
             method: "PUT",
-            headers: { "Authorization": `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
+            headers: { "Authorization": "token " + GITHUB_TOKEN, "Content-Type": "application/json" },
             body: JSON.stringify({
-                message: `Eliminado ID: ${id}`,
+                message: "Eliminado ID: " + id,
                 content: nuevoContenidoBase64,
                 sha: fileData.sha
             })
         });
 
         if (putRes.ok) {
-            alert("🗑️ Ponente eliminado.");
+            alert("Ponente eliminado.");
             cargarLista();
         } else {
             const err = await putRes.json();
-            alert("❌ No se pudo eliminar: " + err.message);
+            alert("No se pudo eliminar: " + err.message);
         }
     } catch (e) {
-        alert("❌ Error de red al eliminar.");
+        alert("Error de red al eliminar.");
     }
 };
