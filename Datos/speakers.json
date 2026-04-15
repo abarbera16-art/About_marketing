@@ -1,22 +1,5 @@
 [
   {
-    "id": 3,
-    "nombre": "Ponente Imaginario",
-    "rol": "Experto en IA para Marketing",
-    "imagenFondo": "../Imagenes/IMAGEN DEFINITIVA.jpeg",
-    "video": "../Recursos/Equipo Audiovisual/Equipo Audiovisual/Tik Tok3 LuisMontalvo.mp4.mov",
-    "etiquetas": [
-      "Inteligencia Artificial",
-      "Innovación",
-      "Data"
-    ],
-    "bio": "Texto de biografía para el tercer ponente. Aquí el equipo de contenidos puede explayarse detallando los logros del invitado.",
-    "redes": {
-      "linkedin": "https://linkedin.com",
-      "instagram": "https://instagram.com"
-    }
-  },
-  {
     "id": 4,
     "nombre": "alvaro",
     "rol": "mafiaboss",
