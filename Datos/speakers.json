@@ -20,5 +20,16 @@
       "123123"
     ],
     "bio": "asdasdasdasdasdadadadaaaa\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  {
+    "id": 12,
+    "nombre": "prueba link",
+    "rol": "link",
+    "imagenFondo": "../Imagenes/IMAGEN DEFINITIVA.jpeg",
+    "video": "../Recursos/video.mp4",
+    "etiquetas": [
+      "link linkedin"
+    ],
+    "bio": "biografia tontorrona"
   }
 ]
