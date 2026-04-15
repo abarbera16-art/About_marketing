@@ -4,7 +4,8 @@
 const PASSWORD_SECRETA = "marketing2026"; 
 // Cambiamos el Token fijo por un prompt para que sea SEGURO al subirlo
 const GITHUB_TOKEN = prompt("🔑 Por seguridad, pega tu GitHub Token para gestionar los datos:");
-const REPO_OWNER_AND_NAME = "abarbera16-art/About_marketing_prueba";
+const REPO_OWNER_AND_NAME = // ✅ FORMA CORRECTA: Solo "usuario/repositorio"
+const REPO_OWNER_AND_NAME = "abarbera16-art/About_marketing_prueba";;
 const FILE_PATH = "Datos/speakers.json";
 
 const loginBtn = document.getElementById('login-btn');
