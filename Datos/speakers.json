@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "nombre": "Luaaaaaaaaais Montalvo",
+    "rol": "Profesor y consultor de Marketing",
+    "imagenFondo": "../Imagenes/IMAGEN DEFINITIVA.jpeg",
+    "video": "../Recursos/Equipo Audiovisual/Equipo Audiovisual/Tik Tok3 LuisMontalvo.mp4.mov",
+    "etiquetas": ["Live Shopping", "E-Commerce", "Marketing Digital"],
+    "bio": "Experto en estrategias de comercio electrónico y eventos híbridos. Luis ayuda a marcas a optimizar su presencia digital y maximizar conversiones mediante experiencias de Live Shopping inmersivas. Su trayectoria une la tecnología con la comunicación estratégica para el sector retail.",
+    "redes": {
+      "linkedin": "https://linkedin.com",
+      "instagram": "https://instagram.com"
+    }
+  },
+  {
+    "id": 2,
+    "nombre": "Raquel Linde",
+    "rol": "Marketing Manager @youaretheprincess",
+    "imagenFondo": "../Imagenes/IMAGEN DEFINITIVA.jpeg",
+    "video": "../Recursos/Equipo Audiovisual/Equipo Audiovisual/Tik Tok3 LuisMontalvo.mp4.mov",
+    "etiquetas": ["Retail Marketing", "Audiovisual", "Eventos Híbridos"],
+    "bio": "Directora de marketing en Retail y reconocida como Best Producer en el Sydney Film School Festival. Raquel lidera la estrategia fusionando su visión creativa con el marketing digital para crear campañas de alto impacto.",
+    "redes": {
+      "linkedin": "https://linkedin.com",
+      "instagram": "https://instagram.com"
+    }
+  },
+  {
+    "id": 3,
+    "nombre": "Ponente Imaginario",
+    "rol": "Experto en IA para Marketing",
+    "imagenFondo": "../Imagenes/IMAGEN DEFINITIVA.jpeg",
+    "video": "../Recursos/Equipo Audiovisual/Equipo Audiovisual/Tik Tok3 LuisMontalvo.mp4.mov",
+    "etiquetas": ["Inteligencia Artificial", "Innovación", "Data"],
+    "bio": "Texto de biografía para el tercer ponente. Aquí el equipo de contenidos puede explayarse detallando los logros del invitado.",
+    "redes": {
+      "linkedin": "https://linkedin.com",
+      "instagram": "https://instagram.com"
+    }
+  }
+]
