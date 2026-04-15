@@ -33,5 +33,16 @@
       "AAAAAAAAAAAAAAAAAAA"
     ],
     "bio": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+  },
+  {
+    "id": 10,
+    "nombre": "ASDASDA",
+    "rol": "ASDASDADS",
+    "imagenFondo": "../Imagenes/IMAGEN DEFINITIVA.jpeg",
+    "video": "../Recursos/video.mp4",
+    "etiquetas": [
+      "ADASDASD"
+    ],
+    "bio": "En una tarde tranquila, el sol iluminaba suavemente las calles mientras las personas caminaban sin prisa. Un niño jugaba en el parque cercano y el sonido de las hojas al moverse con el viento creaba una sensación de calma y armonía en todo el lugar."
   }
 ]
