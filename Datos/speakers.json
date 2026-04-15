@@ -1,18 +1,5 @@
 [
   {
-    "id": 7,
-    "nombre": "jesus",
-    "rol": "andaluz",
-    "imagenFondo": "../Imagenes/IMAGEN DEFINITIVA.jpeg",
-    "video": "../Recursos/video.mp4",
-    "etiquetas": [
-      "panchito",
-      "andaluz",
-      "bareador de olivos"
-    ],
-    "bio": "jesus te odio"
-  },
-  {
     "id": 9,
     "nombre": "AAAAAAAAAAA",
     "rol": "AAAAAAAAAAAAAAAA",
