@@ -31,5 +31,20 @@
       "link link"
     ],
     "bio": "link bio"
+  },
+  {
+    "id": 14,
+    "nombre": "Diego",
+    "rol": "si",
+    "imagenFondo": "../Imagenes/IMAGEN DEFINITIVA.jpeg",
+    "video": "../Recursos/video.mp4",
+    "etiquetas": [
+      "IA"
+    ],
+    "bio": "dwa",
+    "redes": {
+      "linkedin": "wad",
+      "instagram": "wada"
+    }
   }
 ]
